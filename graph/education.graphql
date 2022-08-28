@@ -1,0 +1,57 @@
+type EducationCategory {
+    id: Int!
+    logo: String!
+    title: String!
+    on_duty: Int!
+    nodes(status: [Int!]!): [Education!]! @goField(forceResolver: true)
+}
+
+type Education {
+    id: Int!
+    name: String!
+    link: String!
+    logo: String!
+    image: String!
+    start_year: String!
+    end_year: String!
+    address: String!
+    education_category_id: Int!
+    on_duty: Int!
+    category: EducationCategory! @goField(forceResolver: true)
+}
+
+input NewEducation {
+    name: String!
+    link: String!
+    logo: String!
+    image: String!
+    start_year: String!
+    end_year: String!
+    address: String!
+    education_category_id: Int!
+    on_duty: Int!
+}
+
+input EditedEducation {
+    id: Int!
+    name: String!
+    link: String!
+    logo: String!
+    image: String!
+    start_year: String!
+    end_year: String!
+    address: String!
+    education_category_id: Int!
+    on_duty: Int!
+}
+
+input EditedEducationCategory {
+    id: Int!
+    logo: String!
+    title: String!
+    on_duty: Int!
+}
+input NewEducationCategory {
+    logo: String!
+    title: String!
+}

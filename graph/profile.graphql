@@ -1,0 +1,9 @@
+type ProfileQuery {
+    programming_languages(status: [Int]): [ProgrammingLanguage!]! @goField(forceResolver: true)
+    skills(status: [Int]): [Skill!]! @goField(forceResolver: true)
+}
+
+type ProfileOps {
+    programming_language: ProgrammingLanguageOps! @goField(forceResolver: true)
+    skill: SkillOps! @goField(forceResolver: true)
+}

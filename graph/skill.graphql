@@ -1,0 +1,28 @@
+type Skill {
+    id: Int!
+    logo: String!
+    name: String!
+    state: Float!
+    on_duty: Int!
+}
+
+input NewSkill {
+    logo: String!
+    name: String!
+    state: Float!
+}
+
+input EditedSkill {
+    id: Int!
+    logo: String!
+    name: String!
+    state: Float!
+    on_duty: Int!
+}
+
+type SkillOps {
+    create(input: NewSkill!): Skill! @goField(forceResolver: true)
+    update(input: EditedSkill!): Skill! @goField(forceResolver: true)
+    delete(id: Int!): Int! @goField(forceResolver: true)
+}
+

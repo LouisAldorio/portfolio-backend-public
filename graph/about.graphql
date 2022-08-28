@@ -1,0 +1,24 @@
+type AboutQuery {
+    education(status: [Int]): [EducationCategory!]! @goField(forceResolver: true)
+    working_experience(status: [Int]): [WorkingExperience!]! @goField(forceResolver: true)
+    built_projects(status: [Int]): [BuiltProject!]! @goField(forceResolver: true)
+    education_without_category: [Education!]! @goField(forceResolver: true)
+}
+
+type AboutOps {
+    create_education(input: NewEducation!): Education! @goField(forceResolver: true)
+    create_working_experience(input: NewWorkingExperience!): WorkingExperience! @goField(forceResolver: true)
+    create_built_projects(input: NewBuiltProject!): BuiltProject! @goField(forceResolver: true)
+
+    update_education(input: EditedEducation!): Education! @goField(forceResolver: true)
+    update_working_experience(input: EditedWorkingExperience!): WorkingExperience! @goField(forceResolver: true)
+    update_built_projects(input: EditedBuiltProject!): BuiltProject! @goField(forceResolver: true)
+
+    delete_education(id: Int!): Int! @goField(forceResolver: true)
+    delete_working_exprerience(id: Int!): Int! @goField(forceResolver: true)
+    delete_built_projects(id: Int!): Int! @goField(forceResolver: true)
+
+    create_education_category(input: NewEducationCategory!): EducationCategory! @goField(forceResolver: true)
+    update_education_category(input: EditedEducationCategory!): EducationCategory! @goField(forceResolver: true)
+    delete_education_category(id: Int!): Int! @goField(forceResolver: true)
+}

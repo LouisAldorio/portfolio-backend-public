@@ -1,0 +1,6 @@
+type File {
+    small: String!
+    medium: String!
+    large: String!
+    extra_large: String!
+}

@@ -1,0 +1,26 @@
+type GalleryQuery {
+    carousel_photos(status: [Int]): [TopImage!]! @goField(forceResolver: true)
+    tabs_photos(status: [Int]): [ImagesCategory!]! @goField(forceResolver: true)
+    videos(status: [Int]): [Video!]! @goField(forceResolver: true)
+    audios(status: [Int]): [Audio!]! @goField(forceResolver: true)
+    photos_without_category: [Photo!]! @goField(forceResolver: true)
+}
+
+type GalleryOps {
+    create_top_image(input: NewTopImage!): TopImage! @goField(forceResolver: true)
+    create_image_category(input: NewImagesCategory!): ImagesCategory! @goField(forceResolver: true)
+    create_image(input: NewPhoto!): Photo! @goField(forceResolver: true)
+
+
+    update_top_image(input: EditedTopImage!): TopImage! @goField(forceResolver: true)
+    update_image_category(input: EditedImagesCategory!): ImagesCategory! @goField(forceResolver: true)
+    update_image(input: EditedPhoto!): Photo! @goField(forceResolver: true)
+
+    delete_top_image(id: Int!): Int! @goField(forceResolver: true)
+    delete_image(id: Int!): Int! @goField(forceResolver: true)
+    delete_image_category(id: Int!): Int! @goField(forceResolver: true)
+
+
+    video: VideoOps! @goField(forceResolver: true)
+    audio: AudioOps! @goField(forceResolver: true)
+}

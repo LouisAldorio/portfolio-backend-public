@@ -1,0 +1,36 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+directive @goField(
+  forceResolver: Boolean
+  name: String
+) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+
+
+type Query {
+  about: AboutQuery! @goField(forceResolver: true)
+  profile: ProfileQuery! @goField(forceResolver: true)
+  contact: ContactQuery! @goField(forceResolver: true)
+  gallery: GalleryQuery! @goField(forceResolver: true)
+  home: HomeQuery! @goField(forceResolver: true)
+}
+
+type Mutation {
+  home: HomeOps! @goField(forceResolver: true)
+  about: AboutOps! @goField(forceResolver: true)
+  profile: ProfileOps! @goField(forceResolver: true)
+  contact: ContactOps! @goField(forceResolver: true)
+  gallery: GalleryOps! @goField(forceResolver: true) 
+  login(input: OwnerCredential!): Owner! @goField(forceResolver: true)
+}
+
+input OwnerCredential {
+  username: String!
+  password: String!
+}
+
+type Owner {
+  username: String!
+  access_token: String!
+}

@@ -1,0 +1,30 @@
+type ProgrammingLanguage {
+    id: Int!
+    name: String!
+    value: Int!
+    color: String!
+    total: Int!
+    on_duty: Int!
+}
+
+input NewProgrammingLanguage {
+    name: String!
+    value: Int!
+    color: String!
+    total: Int!
+}
+
+input EditedProgrammingLanguage {
+    id: Int!
+    name: String!
+    value: Int!
+    color: String!
+    total: Int!
+    on_duty: Int!
+}
+
+type ProgrammingLanguageOps {
+    create(input: NewProgrammingLanguage!): ProgrammingLanguage! @goField(forceResolver: true)
+    update(input: EditedProgrammingLanguage!): ProgrammingLanguage! @goField(forceResolver: true)
+    delete(id: Int!): Int! @goField(forceResolver: true)
+}

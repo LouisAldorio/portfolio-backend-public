@@ -1,0 +1,35 @@
+version: '3'
+
+services: 
+  mysql:
+    image: mysql
+    container_name: local-mysql-database
+    volumes:
+      - data-mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: Lengkong123_
+    network_mode: global-network
+  portfolio-backend:
+    image: portfolio-backend
+    container_name: portfolio-backend
+    network_mode: global-network
+    environment:
+      - DB_HOST: "128.199.174.165"
+      - DB_USER: "root"
+      - DB_NAME: "portfolio"
+      - DB_PASS: "Lengkong123_"
+      - DB_PORT: "3306"
+      - KEY: "secret"
+    # env_file: 
+    #   - ./.env
+
+volumes:
+  data-mysql:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: '/home/louisaldorio/data-mysql'
+      # device: '/home/louisaldorio/droplet-backup/louisaldorio/data-mysql'

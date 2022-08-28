@@ -1,0 +1,63 @@
+type Photo {
+    id: Int!
+    src: String!
+    width: Int!
+    height: Int!
+    images_category_id: Int!
+    on_duty: Int!
+    category: ImagesCategory! @goField(forceResolver: true)
+    sizes: File! @goField(forceResolver: true)
+}
+
+type ImagesCategory {
+    id: Int!
+    category: String!
+    on_duty: Int!
+    photos(status: [Int!]!): [Photo!]! @goField(forceResolver: true)
+}
+
+type TopImage {
+    id: Int!
+    src: String!
+    caption: String!
+    on_duty: Int!
+    sizes: File! @goField(forceResolver: true)
+}
+
+input NewTopImage {
+    src: String!
+    caption: String!
+}
+
+input NewImagesCategory {
+    category: String!
+}
+
+input NewPhoto {
+    src: String!
+    width: Int!
+    height: Int!
+    images_category_id: Int!
+}
+
+input EditedTopImage {
+    id: Int!
+    src: String!
+    caption: String!
+    on_duty: Int!
+}
+
+input EditedImagesCategory {
+    id: Int!
+    category: String!
+    on_duty: Int!
+}
+
+input EditedPhoto {
+    id: Int!
+    src: String!
+    width: Int!
+    height: Int!
+    images_category_id: Int!
+    on_duty: Int!
+}

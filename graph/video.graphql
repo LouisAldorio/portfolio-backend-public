@@ -1,0 +1,21 @@
+type Video {
+    id: Int!
+    src: String!
+    on_duty: Int!
+}
+
+input NewVideo {
+    src: String!
+}
+
+input EditedVideo {
+    id: Int!
+    src: String!
+    on_duty: Int!
+}
+
+type VideoOps {
+    create(input: NewVideo!): Video! @goField(forceResolver: true)
+    update(input: EditedVideo!): Video! @goField(forceResolver: true)
+    delete(id: Int!): Int! @goField(forceResolver: true)
+}

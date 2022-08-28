@@ -1,0 +1,31 @@
+type Audio {
+    id: Int!
+    title: String!
+    author: String!
+    src: String!
+    cover: String!
+    on_duty: Int!
+    sizes: File! @goField(forceResolver: true)
+}
+
+input NewAudio {
+    title: String!
+    author: String!
+    src: String!
+    cover: String!
+}
+
+input EditedAudio {
+    id: Int!
+    title: String!
+    author: String!
+    src: String!
+    cover: String!
+    on_duty: Int!
+}
+
+type AudioOps {
+    create(input: NewAudio!): Audio! @goField(forceResolver: true)
+    update(input: EditedAudio!): Audio! @goField(forceResolver: true)
+    delete(id: Int!): Int! @goField(forceResolver: true)
+}

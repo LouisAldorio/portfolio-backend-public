@@ -1,0 +1,28 @@
+type BuiltProject {
+    id: Int!
+    thumbnail: String!
+    name: String!
+    overview: String!
+    github_link: String!
+    deployment_link: String!
+    on_duty: Int!
+}
+
+input NewBuiltProject {
+    thumbnail: String!
+    name: String!
+    overview: String!
+    github_link: String!
+    deployment_link: String!
+    on_duty: Int!
+}
+
+input EditedBuiltProject {
+    id: Int!
+    thumbnail: String!
+    name: String!
+    overview: String!
+    github_link: String!
+    deployment_link: String!
+    on_duty: Int!
+}

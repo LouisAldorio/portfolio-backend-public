@@ -1,0 +1,50 @@
+type ContactQuery {
+    social_media_info: SocialMediaInfo! @goField(forceResolver: true)
+    messages: [Mail!]! @goField(forceResolver: true)
+}
+
+type ContactOps {
+    mail(input: MailInput!): String! @goField(forceResolver: true)
+    update_social_media_info(input: EditSocialMediInfo!): SocialMediaInfo! @goField(forceResolver: true)
+}
+
+input EditSocialMediInfo {
+    id: Int!
+    phone: String!
+    mail: String!
+    location: String!
+    instagram: String!
+    whatsapp: String!
+}
+
+type SocialMediaInfo {
+    id: Int!
+    phone: String!
+    mail: String!
+    location: String!
+    instagram: String!
+    whatsapp: String!
+}
+
+type Mail {
+    id: Int!
+    message: String!
+    subscriber_id: Int!
+    subscriber: Subscriber! @goField(forceResolver: true)
+}
+
+input MailInput {
+    first_name: String!
+    last_name: String!
+    email: String!
+    message: String!
+    phone_number: String!
+}
+
+type Subscriber {
+    id: Int!
+    first_name: String!
+    last_name: String!
+    email: String!
+    phone_number: String!
+}

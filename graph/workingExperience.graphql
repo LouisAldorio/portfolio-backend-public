@@ -1,0 +1,40 @@
+type WorkingExperience {
+    id: Int!
+    company_logo: String!
+    company_name: String!
+    address: String!
+    start_date: String!
+    image: String!
+    end_date: String!
+    position: String!
+    overview: String!
+    description: String!
+    on_duty: Int!
+}
+
+input NewWorkingExperience {
+    company_logo: String!
+    company_name: String!
+    address: String!
+    start_date: String!
+    image: String!
+    end_date: String!
+    position: String!
+    overview: String!
+    description: String!
+    on_duty: Int!
+}
+
+input EditedWorkingExperience {
+    id: Int!
+    company_logo: String!
+    company_name: String!
+    address: String!
+    start_date: String!
+    image: String!
+    end_date: String!
+    position: String!
+    overview: String!
+    description: String!
+    on_duty: Int!
+}
